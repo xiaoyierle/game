@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <title>晋级成功</title>
+</head>
+<body>
+    <div class="daily">
+        <p class="title">晋级成功！</p>
+        <p class="content">恭喜您，成功晋级下一轮比赛！</p>
+        <div class="time">
+            <div class="left">
+                <p class="title">下一轮比赛时间:</p>
+                <p class="content">12月31日 13:00-14:30</p>
+            </div>
+            <div class="right">
+                <p class="right-title">即将开赛</p>
+                <div class="djs">
+                    <div class="left" id="hours">
+                        00
+                    </div>
+                    <div class="right" id="minutes">
+                        00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="time box-center">
+            <img class="daily-btn" src="./img/success.png" alt="">
+            <p class="congratulations">恭喜您，晋级成功！</p>
+        </div>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    function leftTimer(year,month,day,hour,minute,second){
+        var leftTime = (new Date(year,month-1,day,hour,minute,second)) - (new Date()); //计算剩余的毫秒数
+        var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数
+        var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时
+        var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+        var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+        days = checkTime(days);
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        setInterval("leftTimer(2016,11,11,11,11,11)",1000);
+         if(days === '00') {
+            document.getElementById("minutes").innerHTML =minutes;
+            document.getElementById("hours").innerHTML = hours;
+        }
+    }
+    function checkTime(i){ //将0-9的数字前面加上0，例1变为01
+        if(i<10)
+        {
+            i = "0" + i;
+        }
+        return i;
+    }
+    leftTimer(2017,12,30,13,00,00)
+</script>
+</html>

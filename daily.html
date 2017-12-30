@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <title>日赛</title>
+</head>
+<body>
+    <div class="daily">
+        <p class="title">心缘竞技赛日赛场比赛开始啦！</p>
+        <p class="content">心缘竞技系列赛长春赛区12月30日-12月31日将开始日赛场比赛。</p>
+        <div class="time">
+            <div class="left">
+                <p class="title">比赛时间:</p>
+                <p class="content">12月31日 13:00-14:30</p>
+            </div>
+            <div class="right">
+                <p class="right-title">即将开赛</p>
+                <div class="djs">
+                    <div class="left" id="hours">
+                        00
+                    </div>
+                    <span class="dot">:</span>
+                    <div class="right" id="minutes">
+                        00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="time box-center">
+            <img class="daily-btn" src="./img/dailybtn.png" alt="">
+            <p class="congratulations">恭喜比赛报名成功，祝您游戏好运。</p>
+        </div>
+        <div class="time">
+            <p class="title">比赛奖励:</p>
+            <div class="content-center">
+                <p class="gift">第<span class="gift-span">1</span>名：奖金<span class="gift-span">人民币777元</span></p>
+                <p class="gift">第<span class="gift-span">2</span>名：奖金<span class="gift-span">人民币177元</span></p>
+                <p class="gift">第<span class="gift-span">3</span>名：奖金<span class="gift-span">人民币77元</span></p>
+                <p class="gift">第<span class="gift-span">4</span>-<span class="gift-span">20</span>名：奖月赛决赛卡1张</p>
+                <p class="gift">第<span class="gift-span">21</span>-<span class="gift-span">40</span>名：奖房卡3张</p>
+                <p class="gift">第<span class="gift-span">31</span>-<span class="gift-span">50</span>名：奖房卡1张</p>
+            </div>
+        </div>
+        <div class="time">
+            <p class="title">比赛奖励领取</p>
+            <p class="content">玩家可以在排行栏中查看比赛结果，并且可以在通知栏中领取奖励。</p>
+        </div>
+        <div class="time">
+            <p class="title">比赛规则</p>
+            <p class="content">
+                日赛每一场为4圈，开始时根据玩家参与人数自动组局，会随机形成不同人数参与的房间。当最后一个房间比赛结束后，根据玩家积分（相同积分情况下算小分：总参与场次、推广人数、胜率）排名。
+            </p>
+            <p class="content">
+                注：玩家在比赛场或者通知栏可以看到日赛入口，在通知栏中会通知玩家报名的日赛开场，每场日赛开赛前15分钟玩家可以进入日赛房等待比赛。
+            </p>
+        </div>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+     let t = setInterval("leftTimer(2017,12,30,13,00,00)",1000)
+    function leftTimer(year,month,day,hour,minute,second){
+        var leftTime = (new Date(year,month-1,day,hour,minute,second)) - (new Date()); //计算剩余的毫秒数
+        var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); //计算剩余的天数
+        var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 , 10); //计算剩余的小时
+        var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+        var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+        days = checkTime(days);
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        if(days === '00') {
+            document.getElementById("minutes").innerHTML =minutes;
+            document.getElementById("hours").innerHTML = hours;
+        }
+    }
+    function checkTime(i){ //将0-9的数字前面加上0，例1变为01
+        if(i<10)
+        {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+
+</script>
+</html>
